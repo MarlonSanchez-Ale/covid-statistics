@@ -1,23 +1,20 @@
-import logo from './logo.svg';
 import './App.css';
+import { Typography } from "@material-tailwind/react";
+import Dashboard from './Components/Modules/DashBoard/Dashboard';
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App p-5">
+      <div className='grid place-items-center gap-5 p-20'>
+        <Typography variant="h3" className=' text-blue-700'>Covid Statistics</Typography>
+        <Typography className='text-gray-500 font-light'>
+          Coronavirus COVID-19 Statistics API Based on public data by Johns Hopkins CSSE.
+          It includes search by country, province, and date. Returns diff for confirmed, deaths,
+          and recovered, compared with the previous day.
+        </Typography>
+      </div>
+      <Dashboard />
     </div>
   );
 }
