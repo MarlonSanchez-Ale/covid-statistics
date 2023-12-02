@@ -88,20 +88,20 @@ export const Statistics = (value) => {
 
 }
 
-export const History = () => {
+export const History = (value) => {
     const [history, setHistory] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(false)
     const [message, setMessage] = useState(null)
 
 
-    async function fetchData() {
+    async function fetchData(country) {
         const options = {
             method: 'GET',
             url: 'https://covid-193.p.rapidapi.com/history',
             params: {
-                country: 'usa',
-                day: '2023-05-01'
+                country: country ? country : 'Usa',
+                day: '2023-11-30',
             },
             headers: {
                 'X-RapidAPI-Key': '8bffd7af86msh9c2827190400929p1240fbjsnc3504409a67c',
@@ -128,8 +128,8 @@ export const History = () => {
     }
 
     useEffect(() => {
-        fetchData()
-    }, [])
+        fetchData(value)
+    }, [value])
 
     return { history, isLoading, error, message }
 
